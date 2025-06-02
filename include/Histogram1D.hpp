@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cmath>
 
 using namespace std;
 
@@ -10,6 +11,8 @@ class Histogram1D{
         struct Bin{
             double total_weight=0.0;
             double sum_values=0.0;
+            double sum_square=0.0;
+            double sum_weights_squared=0.0;
         };
         string name;
         int bins;
@@ -22,4 +25,7 @@ class Histogram1D{
         void fill(double value,double weight=1.0);
         void print();
         void export_to_csv(const string& filename);
+        double get_bin_center(int bin_index);
+        double get_bin_width();
+        void plot(string& filename,const string& script="Histogram1D_plot.py");
 };
