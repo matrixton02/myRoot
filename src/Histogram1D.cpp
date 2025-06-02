@@ -30,7 +30,7 @@ double Histogram1D::get_bin_center(int bin_index){
 }
 void Histogram1D::print(){
     cout<<"Histogram: "<<name<<" \n";
-    for(size_t i=0;i<bins;i++){
+    for(int i=0;i<bins;i++){
         int bin_width=get_bin_width();
         double bin_start=min_v+i*bin_width;
         double bin_end=bin_start+bin_width;
@@ -55,8 +55,8 @@ void Histogram1D::print(){
 void Histogram1D::export_to_csv(const string& filename){
     ofstream out(filename);
     double bin_width=(max_v-min_v)/bins;
-    out<<"bin_start,bin_end,count,mean_value,rms\n";
-    for(size_t i=0;i<bins;i++){
+    out<<"bin_start,bin_end,count,mean_value,rms,error\n";
+    for(int i=0;i<bins;i++){
         double bin_start=min_v+i*bin_width;
         double bin_end=bin_start+bin_width;
         out<<bin_start<<","<<bin_end<<","<<bin_data[i].total_weight<<",";
@@ -75,9 +75,9 @@ void Histogram1D::export_to_csv(const string& filename){
     out.close();
 }
 
-void Histogram1D::plot(string& filename, const string& script){
+void Histogram1D::plot(const string& filename,const string& script){
     export_to_csv(filename);
-    string command="python"+script+" "+filename;
+    string command="python "+script+" "+filename;
     system(command.c_str());
 }
 

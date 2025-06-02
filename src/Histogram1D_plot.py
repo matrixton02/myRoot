@@ -21,7 +21,10 @@ with open(csv_file,"r") as f:
             center=(bin_start+bin_end)/2
             bin_center.append(center)
             counts.append(float(row["count"]))
-            errors.append(float(row["error"]))
+            if(row["error"]!="N/A"):
+                errors.append(float(row["error"]))
+            else:
+                errors.append(0)
 
 plt.errorbar(bin_center,counts,yerr=errors,fmt='o',capsize=3,label='Histogram1D')
 plt.xlabel("Value")
