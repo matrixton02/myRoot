@@ -27,5 +27,5 @@ class Histogram1D{
         void export_to_csv(const string& filename);
         double get_bin_center(int bin_index);
         double get_bin_width();
-        void plot(const string& filename,const string& script="Histogram1D_plot.py");
+        void plot(const string& filename,const string& script="src/Histogram1D_plot.py");
 };
