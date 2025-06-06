@@ -4,4 +4,6 @@ Histogram1D_plot.png
 main.exe
 Makefile
 Histogram1D.o
+Histogram2D.o
 gaussian.csv
+hist2d.csv

@@ -59,10 +59,7 @@ void Histogram2D::print(){
 }
 void Histogram2D::export_to_csv(const string& filename){
     ofstream out(filename);
-    out<<"xbin_center,y_bin_center,count,error\n";
-    double xwidth=get_bin_width_x();
-    double ywidth=get_bin_width_y();
-
+    out<<"xbin_center,ybin_center,count,error\n";
     for(int i=0;i<xbins;i++){
         double xcenter=get_bin_center_x(i);
         for(int j=0;j<ybins;j++){

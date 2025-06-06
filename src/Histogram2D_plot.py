@@ -10,7 +10,7 @@ z=data["count"]
 
 plt.figure(figsize=(8,6))
 plt.tricontourf(x,y,z,levels=100,cmap='viridis')
-plt.colorbar(lable='counts')
+plt.colorbar(label='counts')
 plt.xlabel('X')
 plt.ylabel('Y')
 plt.title('2D_Histogram')
